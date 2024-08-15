@@ -88,14 +88,14 @@ jobs:
           closure_message="Closing PR due to failure in tests"
           gh pr close --comment "$closure_message" ${{ env.PR_NUMBER }}
       
-      - name: Announce error on Discord
-        uses: sarisia/actions-status-discord@v1
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          content: "Hey @everyone, validation tests failed. PR closed"
-          title: Validation tests
-          status: ${{ needs.check-all-tests-completed-successfully.result }}
-          color: 0xff0000
+      # - name: Announce error on Discord
+      #   uses: sarisia/actions-status-discord@v1
+      #   with:
+      #     webhook: ${{ secrets.DISCORD_WEBHOOK }}
+      #     content: "Hey @everyone, validation tests failed. PR closed"
+      #     title: Validation tests
+      #     status: ${{ needs.check-all-tests-completed-successfully.result }}
+      #     color: 0xff0000
 
   call-tag-and-release-workflow:
     needs: merge-after-all-tests-passed

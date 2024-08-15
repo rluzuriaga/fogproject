@@ -41,10 +41,10 @@ jobs:
           tag=$(grep "define('FOG_VERSION'" $system_file | sed "s/.*FOG_VERSION', '\([^']*\)');/\1/")
           echo "TAG=$tag" >> $GITHUB_ENV
 
-      - name: Announce success on Discord
-        uses: sarisia/actions-status-discord@v1
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          title: "New release"
-          description: Click [here](https://github.com/fogproject/fogproject/releases/latest) to check the newest release.
-          color: 0x00ff00
+      # - name: Announce success on Discord
+      #   uses: sarisia/actions-status-discord@v1
+      #   with:
+      #     webhook: ${{ secrets.DISCORD_WEBHOOK }}
+      #     title: "New release"
+      #     description: Click [here](https://github.com/fogproject/fogproject/releases/latest) to check the newest release.
+      #     color: 0x00ff00
