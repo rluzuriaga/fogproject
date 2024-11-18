@@ -147,7 +147,7 @@ class BootMenu extends FOGBase
             );
         }
 
-        if (isset($_REQUEST['arch']) && stripos($_REQUEST['arch'], 'arm64') !== false) {
+        if (isset($_REQUEST['arch']) && stripos($_REQUEST['arch'], 'arm') !== false) {
             //use arm boot loaders instead
             $refind = 'chain -ar ${boot-url}/service/ipxe/refind_aa64.efi';
         }
@@ -296,7 +296,7 @@ class BootMenu extends FOGBase
         if (($_REQUEST['arch'] ?? '') == 'i386') {
             $bzImage = $bzImage32;
             $imagefile = $init_32;
-        } elseif (($_REQUEST['arch'] ?? '') == 'arm64') {
+        } elseif (false !== stripos(($_REQUEST['arch'] ?? ''), 'arm')) {
             $bzImage = $bzImageArm;
             $imagefile = $init_arm;
         }
