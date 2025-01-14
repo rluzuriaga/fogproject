@@ -252,7 +252,7 @@ interface2broadcast() {
         echo "No interface passed"
         return 1
     fi
-    echo $(ip -4 addr show | grep -w inet | grep $interface | awk '{print $4}')
+    echo $(ip -4 addr show $interface | grep -oP 'brd \K\S+')
 }
 subtract1fromAddress() {
     local ip=$1
