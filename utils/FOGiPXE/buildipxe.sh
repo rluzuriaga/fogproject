@@ -84,7 +84,7 @@ make CROSS_COMPILE=aarch64-linux-gnu- ARCH=arm64 EMBED=ipxescript bin-arm64-efi/
 [[ $? -eq 0 ]] || exit 82
 
 # Copy the files to upload
-bin-arm64-efi/{snp{,only},ipxe,intel,realtek,ncm--ecm--axge}.efi ${FOGDIR}/packages/tftp/arm64-efi/
+cp bin-arm64-efi/{snp{,only},ipxe,intel,realtek,ncm--ecm--axge}.efi ${FOGDIR}/packages/tftp/arm64-efi/
 cp bin-i386-efi/{snp{,only},ipxe,intel,realtek,ncm--ecm--axge}.efi ${FOGDIR}/packages/tftp/i386-efi/
 cp bin-x86_64-efi/{snp{,only},ipxe,intel,realtek,ncm--ecm--axge}.efi ${FOGDIR}/packages/tftp/
 
