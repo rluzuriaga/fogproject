@@ -2590,7 +2590,8 @@ abstract class FOGBase
      * @return void|bool
      */
     public static function is_authorized($return_bool = false)
-    {   $authorized = self::$FOGUser->isValid() || 
+    {
+        $authorized = (self::$FOGUser && self::$FOGUser->isValid()) || 
             strtolower(($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '')) == 'xmlhttprequest';
         if ($return_bool) {
             return $authorized;
