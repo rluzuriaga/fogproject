@@ -226,7 +226,17 @@ class StorageNode extends FOGController
             $this->get('ip'),
             $items[$item]
         );
-        $response = self::$FOGURLRequests->process($url);
+        $response = self::$FOGURLRequests->process(
+            $url,
+            'GET',
+            null,
+            false,
+            false,
+            false,
+            false,
+            false,
+            ['X-Requested-With: XMLHttpRequest']
+        );
         $filelist = json_decode($response[0], true);
         if (isset($filelist) && is_array($filelist)) {
             return preg_grep(
